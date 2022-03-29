@@ -1,0 +1,7 @@
+import numpy
+x=numpy.array([[1,2],[3,4]])
+y= numpy.array([[6,7],[8,9]])
+print("product")
+print(numpy.dot(x,y))
+print("transpose")
+print(x.T)
