@@ -1,0 +1,31 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn import datasets, linear_model
+from sklearn.metrics import mean_squared_error,r2_score
+df=datasets.load_iris()
+df['feature_names']
+
+x,y=datasets.load_iris(return_X_y=True)
+x.shape
+y.shape
+
+x=x[:,np.newaxis,2]
+x.shape
+
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.7)
+
+reg=linear_model.LinearRegression()
+reg.fit(x_train,y_train)
+y_pred=reg.predict(x_test)
+
+print("coefficient \n",reg.coef_)
+print("mean squared error: \n",mean_squared_error(y_test,y_pred))
+print("coefficient of detemination:\n",r2_score(y_test,y_pred))
+
+plt.scatter(x_test,y_test,color="black")
+plt.plot(x_test,y_pred,color="blue" ,linewidth=3)
+plt.xlabel("sepal length")
+plt.ylabel("flower category")
+plt.xticks(())
+plt.yticks(())
+plt.show()
